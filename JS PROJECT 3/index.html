@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    *{
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    .card{
+      display: flex;
+      margin:10px;
+      border:2px solid black;
+      width:1200px;
+      height:150px;
+      overflow: hidden;
+      background-color: black;
+      border-radius: 5px;
+    
+    }
+    .image{
+      width:30%;
+      height:100%;
+      position: relative;
+      padding:10px;
+    }
+    img{
+      width:100%;
+      height:100%;
+    }
+    h2{
+      font-size: 20px;
+      margin:5px;
+      color:white;
+    }
+    p{
+      font-size: 18px;
+      margin:10px;
+      color:gray;
+    }
+    .time{
+ position: absolute;
+ right:0px;
+ bottom:0px;
+ color:white;
+ background-color: black;
+ padding:2px;
+ border-radius: 2px;
+ margin:10px;
+    }
+    .input{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-top:30px;
+     
+    
+      
+      
+    }
+    @media (max-width:1000px) {
+     .box{
+      width:400px;
+     }
+    }
+    .box{
+      width:600px;
+      height:400px;
+      border:2px solid black;
+      padding: 10px;
+      box-shadow: 5px 5px black;
+      background-color: aliceblue;
+      transition:  all 2s;
+     
+     display: grid;
+     grid-template-columns: repeat(2,1fr);
+     grid-template-rows: repeat(4,1fr);
+   
+
+    }
+    .box:hover{
+    transform:scale(1.1);
+    background-color: rgb(210, 234, 255);
+    }
+    input{
+      margin:10px;
+      border:2px solid black;
+      padding:10px;
+      width:260px;
+      height:30px;
+    
+    }
+    label{
+      font-size: 18px;
+      font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    }
+    form{
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .btn5{
+        padding:10px 40px;
+        background-color: white;
+        font-size:18px;
+        font-weight: bold;
+        width:200px;
+        height:30px;
+        position: relative;
+        color:black;
+        z-index: 1;
+        cursor: pointer;
+        overflow-y: hidden;
+        border-radius:5px;
+        box-shadow: 2px 2px 5px black ;
+        border:2px solid white;
+      }
+      .btn5::before{
+          content:"";
+          width:100%;
+          height:100%;
+          position:absolute;
+          top:0px;
+          left:0px;
+          background-color: red;
+          z-index: -1;
+        
+          transform: translateX(-100%);
+          transition: 0.9s ease-in-out ;
+          
+      }
+      .btn5:hover::before{
+        transform: translateX(0%) rotate(180deg);
+      }
+     
+      .btn5:hover{
+        color:rgb(0, 0, 0);
+        border:2px solid rgb(0, 0, 0);
+      }
+      .fuck{
+      background-color: green;
+      grid-column: 1 / span 2;
+      grid-row: 4;
+      width:100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      }
+  </style>
+</head>
+<body>
+  <div class="container">
+   
+  </div>
+  <div class="input">
+    <div class="box">
+    
+        <div>
+        <label for="tname">ENTER TITLE NAME</label>
+        <input type="text" id="tname" placeholder="TITLE-NAME ">
+      </div>
+        <div>
+        <label for="cname">CHANNEL-NAME</label>
+        <input type="text" id="cname"placeholder="CHANNEL NAME">
+      </div>
+        <div>
+          <label for="views">VIEWS</label>
+          <input type="text" id="views" placeholder="VIEWS">
+        </div>
+        <div>
+          <label for="fdate">DATE</label>
+          <input type="month" id="fdate">
+        </div>
+        <div >
+          <label for="ttime">TIME</label>
+          <input type="time" id="ttime">
+          
+      </div>
+      <div>
+        <label for="img">IMAGE</label>
+      <input type="text"id="img">
+      </div >
+      <div class="fuck">
+
+        <button type="button" class="btn5" onclick="submit()">SUBMIT</button>
+      </div>
+    </div>
+  </div>
+  <script src="demo.js"></script>
+  
+</body>
+</html>

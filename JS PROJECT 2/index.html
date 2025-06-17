@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>STOPE-WATCH</title>
+    <style>
+        *{
+            margin:0;
+            padding:0;
+            box-sizing: border-box;
+        }
+        .parent{
+            width:100vw;
+            height:100vh;
+            background: #448aff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+           
+        }
+        .child{
+            width:400px;
+            height:300px;
+            background-color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap:80px;
+            border-radius: 10px;
+           border: 2px solid black;   
+        }
+        
+        .num{
+            display: flex;
+        }
+        .button{
+           display: flex;
+           gap:80px;
+        }
+        button{
+            border-radius: 5px;
+            padding:5px 10px 5px 10px;
+            background-color: red;
+            color:white;
+        }
+        #b1{
+            background-color: blue;
+        }
+        #b2{
+            background-color: red;
+        }
+        #b3{
+            background-color: greenyellow;
+        }
+        h1{
+            margin-left:10px;
+        }
+    </style>
+</head>
+<body>
+    <script>
+        let milli = 0;
+        let sec = 0;
+        let min = 0;
+        let hr  = 0;
+        let timer = false;
+        function start()
+        {
+             timer = true;
+             myfun();
+             
+        }
+        function stop()
+        {
+             timer = false;
+             myfun();
+        }
+        function reset()
+        {
+            location.reload();
+        }
+        function myfun()
+        {
+            if(timer == true)
+        {
+            milli = milli+1;
+
+            
+            if(milli == 100)
+        {
+            sec = sec + 1;
+            milli = 0;
+        }
+        if(sec == 60)
+        {
+            min = min+1;
+            sec = 0;
+        }
+        if(min == 60)
+        {
+            hr = hr+1;
+             min = 0;
+        }
+        let getsec = sec;
+        let getmin = min;
+        let gethr = hr;
+        if(sec<10)
+        {
+            getsec = "0"+sec;
+        }
+        if(min<10)
+        {
+            getmin = "0"+min;
+        }
+        if(hr<10)
+        {
+            gethr = "0"+hr;
+        }
+        setTimeout("myfun()",10);
+        document.getElementById("milli").innerHTML=milli;
+        document.getElementById("sec").innerHTML=getsec;
+        document.getElementById("min").innerHTML=getmin;
+        document.getElementById("hr").innerHTML=gethr;
+        }
+       
+        }
+    </script>
+    <div class="parent">
+        <div class="child">
+            <div class="num">
+                <h1 id="hr">00</h1>
+                <h1>:</h1>
+                <h1 id="min">00</h1>
+                <h1>:</h1>
+                <h1 id="sec">00</h1>
+                <h1>:</h1>
+                <h1 id="milli">00</h1>
+            </div>
+            <div class="button">
+                <button id="b1" onclick="start()">START</button>
+                <button id="b2" onclick="stop()">STOP</button>
+                <button id="b3" onclick="reset()">RESET</button>
+            </div>
+        </div>
+    </div>
+    
+</body>
+</html>

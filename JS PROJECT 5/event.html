@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0px;
+            padding: 0px;
+            box-sizing: border-box;
+        }
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 2px solid black;
+            background-color: #D94A38;
+            width: 200px;
+            height: 100px;
+           
+         
+            font-size: 40px;
+            color: white;
+            cursor: pointer;
+        }
+        .main{
+            display: flex;
+            width:100vw;
+            height: 100vh;
+           flex-direction: column;
+           justify-content: center;
+           align-items: center;
+        gap:20px;
+        }
+        .secondcontainer{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 2px solid black;
+            background-color: #D94A38;
+            width: 200px;
+            height: 100px;
+          
+            
+            font-size: 40px;
+            color: white;
+            cursor: pointer;
+        }
+ 
+    </style>
+</head>
+<body>
+    <div class="main">
+    <div class="container" onclick="start()">
+        CLICK
+    </div>
+    
+    <div class="secondcontainer" onclick="start()">
+        Mouse over Me
+    </div>
+</div>
+    
+    <script>
+        let count = 0;
+
+        function start() {
+            count++;
+            let a = document.querySelector(".container");
+
+            if (count == 1) {
+                a.innerHTML = "click-me-again";
+            } else if (count == 2) {
+                a.innerHTML = "thank-you";
+            } else if (count == 3) {
+                a.innerHTML = "good-bye";
+            } else {
+                a.style.display = 'none';
+
+            }
+        }
+        let secondContainer = document.querySelector(".secondcontainer");
+
+secondContainer.addEventListener("mouseover", function () {
+    secondContainer.innerHTML = "Thank you";
+});
+
+secondContainer.addEventListener("mouseout", function () {
+    secondContainer.innerHTML = "Mouse over Me";
+});
+        
+    
+    </script>
+</body>
+</html>

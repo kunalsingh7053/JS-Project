@@ -1,0 +1,61 @@
+<!-- WINDOW EVENTS -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            height: 3000px;
+            transition: all 2s ease-in-out;
+        }
+    </style>
+ 
+</head>
+<body>
+    <h2>Open Google Window</h2>
+     <button onclick="openWindow()">Open Window</button>
+   <button onclick="closeWindow()">Close Window</button>
+    <script>
+
+        window.addEventListener('scroll',function(){
+            console.log('Scroll Event Fired!');
+            
+        })
+        window.addEventListener('wheel',function(event){
+            if(event.deltaY < 0)
+        {
+            console.log("Scroll Up!");
+            
+        }
+        else if(event.deltaY > 0)
+        {
+            console.log("Scroll Down!");
+
+        }
+        })
+        window.addEventListener('scroll',function(){
+            if(window.pageYOffset>1000)
+        {
+        document.body.style.backgroundColor = "red";
+        }
+        else if(window.pageYOffset<1000)
+        {
+            document.body.style.backgroundColor = "white";
+
+        }
+        })
+        var sumwindow;
+        function openWindow()
+        {
+          sumwindow =  window.open('http://www.google.com',"","width=500px,height=500px,left=500px,top=1px");
+        }
+        function closeWindow()
+        {
+            sumwindow.close();
+        }
+    </script>
+</body>
+</html>

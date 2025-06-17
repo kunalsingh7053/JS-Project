@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body{
+            font-family: sans-serif;
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: start;
+            align-items: center;
+        }
+        
+      .container{
+        margin: 10px;
+     
+        border: 2px solid black;
+      
+        overflow: hidden;
+        position: relative;
+      }
+      .map{
+        width: 100%;
+        height: 100%;
+      }
+      h2{
+        z-index: 10;
+        position: absolute;
+        top: 40px;
+        left:50%;
+        transform: translate(-50%,-50%);
+        opacity: 0; 
+        transition: all 2s linear ;
+      }
+@media (max-width:1000) {
+    .container{
+        padding: 20px;
+    }
+}
+    </style>
+</head>
+<body>
+    <div class="container">
+      <h2>Medi-Caps University</h2>
+        <div class="map">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3682.8782186920653!2d75.801010409187!3d22.621022379371613!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3962f958dcb7169d%3A0xd877c12078e50f0f!2sMedi-Caps%20University!5e0!3m2!1sen!2sin!4v1738388473383!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+    </div>
+
+    <script>
+        let container = document.querySelector('.container');
+        container.addEventListener('mouseover',function()
+    {
+        document.querySelector('h2').style.opacity = 1;
+    })
+        container.addEventListener('mouseout',function()
+    {
+        document.querySelector('h2').style.opacity = 0;
+    })
+    </script>
+    
+</body>
+</html>

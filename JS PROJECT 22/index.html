@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Layout</title>
+    <style>
+*{
+margin: 0;
+ padding: 0;
+ box-sizing: border-box;
+}
+html,body
+{
+height:100%;
+width:100%;
+}
+.images{
+    width: 100%;
+    background-color: wheat;
+    display: grid;
+    gap:20px;
+    grid-template-areas:
+    "a"
+    "b"
+    "c"
+    "d"
+    "e"
+    "f"
+    "g"
+    "h"
+    "i"
+    "j"
+
+ ;
+}
+img{
+    width: 100%;
+    object-fit: cover;
+            /* width/height */
+     aspect-ratio:1 / 1;
+     /*16/9;ye laptop ka aspect ration hai 16/9 */
+     
+
+}
+.img-a{
+    grid-area:a;
+
+}
+
+.img-b{
+    grid-area:b;
+
+}
+.img-c{
+    grid-area:c;
+
+}
+.img-d{
+    grid-area:d;
+
+}
+.img-e{
+    grid-area:e;
+
+}
+.img-f{
+    grid-area:f;
+
+}
+.img-g{
+    grid-area:g;
+
+}
+.img-h{
+    grid-area:h;
+
+}
+
+.img-j{
+    grid-area:j;
+
+}
+@media (min-width:1080px)
+{
+  
+.images{
+    grid-template-areas:
+    "a a b c "
+    "a a d e "
+    "f g j j "
+    "h i j j "
+
+ ;
+}
+}
+    </style>
+</head>
+<body>
+    <div class="images">
+        <img src="https://i.pinimg.com/736x/aa/86/c6/aa86c677efc2c228a14b5513efb37a08.jpg" alt=""  class="img img-a">
+        <img src="https://i.pinimg.com/736x/6f/49/21/6f492115360d9fea1204f93193fe0ad6.jpg" alt="" class="img img-b">
+        <img src="https://i.pinimg.com/736x/f3/f8/62/f3f86268790d36b0850dcdc6197dd297.jpg" alt="" class="img img-c">
+        <img src="https://i.pinimg.com/736x/eb/52/3d/eb523d25e6d8cac181d0812d96dfe6cb.jpg" alt="" class="img img-d">
+        <img src="https://i.pinimg.com/736x/77/0f/98/770f98752753b040254ce85cb5d58d05.jpg" alt="" class="img img-e">
+        <img src="https://i.pinimg.com/736x/d0/47/e8/d047e835a5e5f17a70b99ce675436cd7.jpg" alt="" class="img img-f">
+        <img src="https://i.pinimg.com/736x/d3/71/20/d371205586508a98d5ae3fe89a653728.jpg" alt="" class="img img-g">
+        <img src="https://i.pinimg.com/736x/01/cf/68/01cf6865859a92b10ad77a36c88e058c.jpg" alt="" class="img img-h">
+        <img src="https://i.pinimg.com/736x/29/95/bd/2995bd26368c52dff4a5f55f7912bac5.jpg" alt="" class="img img-i">
+        <img src="https://i.pinimg.com/736x/c2/b0/68/c2b068164f6d563389becd56c1199945.jpg" alt="" class="img img-j">
+    </div>
+</body>
+</html>

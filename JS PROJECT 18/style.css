@@ -1,0 +1,78 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #F4F1E9;
+    font-family: "Edu AU VIC WA NT Hand", serif;
+}
+.container{
+  background-color: white;
+ min-height: 60vh;
+ min-width: 20vw;
+
+ display: flex;
+ flex-direction: column;
+ align-items: center;
+ padding: 1rem;
+ border-radius: 1rem;
+ position: relative;
+ justify-content: space-between;
+ overflow: hidden;
+
+
+}
+h3{
+    font-size: 1rem;
+   
+}
+.input-container{
+    width: 100%;
+}
+input{
+    width: 100%;
+    padding: 0px;
+    border:none;
+    outline: none;
+    border-bottom: 2px solid black;
+    color:gray;
+ font-size: 1rem;
+}
+
+
+select{
+    cursor: pointer;
+
+}
+button{
+    cursor: pointer;
+}
+.result{
+    border:2px solid lightgray;
+    padding:5px;
+    min-width: 100%;
+    min-height: 40vh;
+    margin: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+button{
+   padding:5px 25px 5px 25px;
+   color: white;
+   background-color: black;
+   border: 2px solid rgb(164, 145, 145);
+}
+@media (max-width:245px) {
+    h3{
+        font-size: 0.7rem;
+    }
+}
+.qrcode{
+    border: 2px solid black;
+}

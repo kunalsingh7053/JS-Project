@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rock Paper Scissor</title>
+    <style>
+        *{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    background: #082c6c;
+    color: #fff;
+    
+}
+.result{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap:10px;
+  
+
+}
+.box{
+    display: flex;
+    justify-content: center;
+   gap:35px;
+
+}
+.score{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap:20px;
+  
+}
+.cscore{
+    display: flex;
+    flex-direction: column;
+ align-items: center;
+ gap:20px;
+  
+}
+.header{
+    font-size: 50px;
+
+}
+.choose{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top:80px;
+}
+button{
+    padding: 0.8rem;
+    width: 100px;
+    border-radius: 10px;
+    background: green;
+    outline: none;
+    border-color: green;
+    border: none;
+    cursor: pointer;
+
+}
+.btn{
+      display: flex;
+     gap:110px;
+     margin-top:30px;
+}
+.game_over{
+    font-size: 30px;
+}
+@media(max-width:546px)
+{
+    .header{
+
+        font-size: 35px;
+
+    }
+    .btn{
+  gap:40px;
+}
+}
+#res{
+    display: none;
+    margin-top: 20px;
+}
+    </style>
+</head>
+<body>
+    <div class="result">
+        <div class="first">
+            <h1 class="header">Rock Paper Scissor</h1>
+
+        </div>
+        <div class="box">
+        <div class="score">
+           
+            <h2>player</h2>
+            <p id="count">0</p>
+
+        </div>
+        <div class="cscore">
+            <h2>computer</h2>
+            <p id="ccount">0</p>
+            
+        </div>
+    </div>
+    </div>
+    <div class="choose">
+       <div class="choose_header">
+        <h1 >Choose your move</h1>
+       </div>
+       <div class="moves">
+     <p>Moves Left: <span id="moves_value">10</span></p>
+       </div>
+       <div class="btn">
+       <button onclick="main(player = 0)">Rock</button>
+       <button onclick="main(player = 1)">Paper</button>
+       <button onclick="main(player = 2)">Scissor</button>
+       </div>
+       <br>
+       <div id="final_result">
+      
+       </div>
+       <div class="won">
+          
+       </div>
+      <button id="res" onclick = 'location.reload()' >
+        Restart
+      </button>
+    </div>
+    <script>
+        // Rock = 0
+        // Paper = 1
+        // Scissor = 2
+        // ------------------------------------------------------
+        // computer == player => tie
+        // -------------------------------------------------------
+        // computer == 0 && player == 1 => player won
+        // computer == 1 && player == 2 => player won
+        // computer == 2 && player == 0 => player won
+        // --------------------------------------------------------
+        // computer == 1 && player == 0 => computer won
+        // computer == 2 && player == 1 => computer won
+        // computer == 0 && player == 2 => computer won
+        var count = 0;
+        var ccount = 0;
+        var moves = 10;
+    
+    function main(parameter)
+    {
+        let computer = Math.floor(Math.random() * 3);
+    
+        moves--;
+document.getElementById("moves_value").innerText = moves;
+
+        if (moves === 0) {
+          document.querySelector("#res").style.display = 'block';
+
+            let a = document.querySelector('.choose_header');
+let b = document.querySelector('.moves');
+let c = document.querySelector('.btn');
+let d = document.querySelector('#final_result');
+c.style.display = 'none';
+b.style.display = 'none';
+a.innerHTML = 'Game Over!!!';
+a.className = 'game_over'
+d.style.display = 'none';
+
+
+
+        }
+        let player = parameter;
+        if(computer === player){
+            document.getElementById("final_result").innerText = 'Tie';
+            console.log('टाई राउंड। कोई अंक नहीं जोड़े गए।');
+
+        }
+        else if(computer ==  0 && player == 1)
+        {
+            count++;
+            document.getElementById('count').innerHTML = count;
+            document.getElementById("final_result").innerText = 'player won';
+        }
+        else if(computer ==  1 && player == 2)
+        {
+            count++;
+            document.getElementById('count').innerHTML = count;
+            document.getElementById("final_result").innerText = 'player won';
+        }
+        else if(computer ==2 && player ==0)
+        {
+            count++;
+            document.getElementById('count').innerHTML = count;
+            document.getElementById("final_result").innerText = 'player won';  
+        }
+        else if(computer ==1 && player ==0)
+        {
+            ccount++;
+            document.getElementById('ccount').innerHTML = ccount;
+            document.getElementById("final_result").innerText = 'computer won';  
+        }
+        else if(computer ==2 && player ==1)
+        {
+            ccount++;
+            document.getElementById('ccount').innerHTML = ccount;
+            document.getElementById("final_result").innerText = 'computer won';  
+        }
+        else
+
+        {
+            ccount++;
+            document.getElementById('ccount').innerHTML = ccount;
+            document.getElementById("final_result").innerText = 'computer won';  
+        }
+        if(moves===0)
+        {
+
+       
+        let e = document.querySelector('.won');
+if (count<ccount) {
+    e.innerHTML = 'You Lost The Game 👎';
+    e.style.color = 'red';
+} else if (count > ccount) {
+e.innerHTML = 'You Won The Game🥇';
+    e.style.color = 'white'; // विजेता के लिए
+
+} 
+else {
+    e.innerHTML = 'MATCH TIE 🤝';
+    e.style.color = 'yellow';
+}
+console.log(count);
+console.log(ccount);
+
+
+    } 
+}
+
+        </script>
+    
+</body>
+</html>

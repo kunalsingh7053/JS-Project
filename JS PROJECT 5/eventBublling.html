@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container{
+            border:2px solid black;
+            margin:20px;
+            background-color: red;
+            padding:20px;
+
+        }
+        .childcontainer{
+            border:2px solid black;
+            margin:20px;
+            background-color: yellow;
+            padding:20px;
+
+        }
+        .child{
+            border:2px solid black;
+          
+            background: blue;
+            padding:20px;
+            margin:20px;
+
+
+        }
+        .bcontainer{
+            display: flex;
+            justify-self: center;
+            align-items: center;
+            gap: 25px;
+        }
+        .btn6{
+        padding:10px 40px;
+        background-color: white;
+        font-size:18px;
+        font-weight: bold;
+        width:200px;
+        height:50px;
+        position: relative;
+        color:rgb(200, 23, 23);
+        z-index: 1;
+        cursor: pointer;
+        overflow-y: hidden;
+        overflow-x: hidden;
+        border-radius:5px;
+        box-shadow: 2px 2px 5px black ;
+        border:2px solid white;
+      }
+      .btn6::before{
+          content:"";
+          width:200px;
+          height:200px;
+          position:absolute;
+          top:0px;
+          left:0px;
+          background-color: black;
+          z-index: -1;
+        
+          transform: translateX(-1%) translateY(-40%) scale(0%);
+          transition: 0.9s ease-in-out ;
+          border-radius:50%;
+          
+      }
+      .btn6:hover::before{
+        
+        transform: translateX(-1%) translateY(-40%) scale(100%);
+      }
+      .btn6:hover{
+
+        color:white;
+        border:2px solid white;
+      }
+      @media (max-width:500px) {
+        .btn6{
+            width:130px;
+            height:40px;
+        }
+      }
+   
+    </style>
+</head>
+<body>
+    <div class="container" >
+        <div class="childcontainer">
+            <div class="child">
+
+            </div>
+        </div>
+    </div>
+    <div class="bcontainer">
+
+        <button onclick="stop()" class="btn6">
+          stop
+        </button>
+        <button onclick="start()" class="btn6">
+          start
+        </button>
+    </div>
+
+
+    <script >
+        document.querySelector(".container").addEventListener("click",(e)=>{
+           e.stopPropagation();
+            alert("your click in container");
+            
+        })
+        document.querySelector(".childcontainer").addEventListener("click",(e)=>{
+            e.stopPropagation();
+            alert("your click in child container");
+        })
+        document.querySelector(".child").addEventListener("click",(e)=>{
+            e.stopPropagation();
+            alert("your click in child");
+        })
+        function color()
+        {
+            let x = Math.floor(Math.random() * 255);
+            let y = Math.floor(Math.random() * 255);
+            let z = Math.floor(Math.random() * 255) ;
+            return "rgb("+x+","+y+","+z+")"
+        }
+        var a = setInterval(() => {
+           
+         document.querySelector(".child").style.backgroundColor = color()
+        }, 1000);
+       var b =  setInterval(() => {
+          
+            document.querySelector(".container").style.backgroundColor = color()
+        }, 1000);
+       var c =  setInterval(() => {
+         
+            document.querySelector(".childcontainer").style.backgroundColor = color()
+        }, 1000);
+       
+        function stop()
+        {
+            clearInterval(a) ;
+            clearInterval(b) ;
+            clearInterval(c) ;
+        } 
+      function start() {
+    a = setInterval(() => {
+        document.querySelector(".child").style.backgroundColor = color();
+    }, 1000);
+    b = setInterval(() => {
+        document.querySelector(".container").style.backgroundColor = color();
+    }, 1000);
+    c = setInterval(() => {
+        document.querySelector(".childcontainer").style.backgroundColor = color();
+    }, 1000);
+}
+
+    </script>
+</body>
+</html>

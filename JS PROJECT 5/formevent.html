@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    fieldset {
+      width: 500px;
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+    }
+    form {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      gap: 25px;
+    }
+  </style>
+</head>
+<body>
+  <fieldset>
+    <form >
+      <label for="fname">Enter First name</label>
+      <input type="text" id="fname" required>
+     
+      <label for="lname">Enter Last name</label>
+      <input type="text" id="lname" required>
+      <button >Submit</button>
+    </form>
+  
+  </fieldset>
+  <script>
+    // Add event listener for button click
+    document.getElementById("submit").addEventListener('click', function() {
+      alert("Submitted Successfully!");
+    });
+
+    // Add global keydown listener for Enter key
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Enter') {
+        alert("Submitted Successfully!");
+      }
+    });
+  </script>
+</body>
+</html>

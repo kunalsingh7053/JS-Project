@@ -1,0 +1,92 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+html,body{
+    width: 100%;
+    height: 100%;
+}
+/* Light */
+:root{
+    --bg-main:#ECF2FF;
+    --bg-primary:#18122B;
+
+}
+
+/* Dark Mode */
+body.darkmode {
+  --bg-main: #18122B;
+  --bg-primary: #ECF2FF;
+}
+body {
+    color: var(--bg-primary);
+    background-color: var(--bg-main);
+    padding: 50px;
+      transition: background-color 0.3s ease, color 0.3s ease;
+
+}
+
+#checkbox{
+    visibility: hidden;
+}
+#checkbox:checked + .toggle-label .toggle-ball{
+    background-color: #5FC3E4;
+    transform: translateX(2rem);
+    
+}
+.toggle-label{
+    width: 6rem;
+    height: 4rem;
+    background-color:var(--bg-primary) ;
+    display: inline-block;
+    position: relative;
+    left: 0px;
+    border-radius: 10rem;
+    cursor: pointer;
+}
+.toggle-ball{
+    width: 3rem;
+    height: 3rem;
+    border-radius: 50%;
+    background-color: var(--bg-main);
+    display: inline-block;
+    position: absolute;
+    top: .5rem;
+    left: .5rem;
+     transition: all .3s linear;
+     overflow: hidden;
+     padding: 10px;
+}
+.txt{
+    text-align: justify;
+}
+.moon{
+    width: 100%;
+    height: 100%;
+ 
+
+}
+.sun{
+      width: 100%;
+    height: 100%;
+  
+}
+/* Hide moon by default (light mode) */
+.moon {
+  display: none;
+}
+
+/* Show sun by default (light mode) */
+.sun {
+  display: inline;
+}
+
+/* In dark mode: hide sun, show moon */
+body.darkmode .moon {
+  display: inline;
+}
+
+body.darkmode .sun {
+  display: none;
+}

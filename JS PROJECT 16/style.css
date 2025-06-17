@@ -1,0 +1,34 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    font-family: courier new, monospace;
+color: #1f1;
+margin: 25px;
+background: #111 radial-gradient(#000, #111) ;
+font-size: 1.5rem;
+}
+b{
+    color:white;
+    animation: blink 2s linear 1s infinite ;
+}
+/* The animation code */
+@keyframes blink {
+0%{
+color:black;
+}
+30%{
+color: white;
+}
+60%{
+color: black;
+}
+90%{
+color: white;
+}
+100%{
+color:black;
+}
+}

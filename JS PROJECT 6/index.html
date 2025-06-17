@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Generator with Screenshot</title>
+    <style>
+        * {
+            font-family: sans-serif;
+            margin: 0;
+        }
+
+        body {
+            background-color: #c9ffee;
+        }
+
+        #body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0;
+            background-color: red;
+        }
+
+        #main {
+            height: 800px;
+            width: 100vw;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+
+        #inmain {
+            border: 1px solid black;
+            height: 670px;
+            width: 460px;
+            display: none;
+            position: relative;
+        }
+
+        #im {
+            height: 10%;
+            width: 100%;
+            display: flex;
+            align-items: end;
+            flex-direction: column;
+            justify-content: end;
+            position: relative;
+            top: -70px;
+        }
+
+        #gimg {
+            height: 90px;
+            width: 90px;
+            background-image: url("https://gibs.earthdata.nasa.gov/wmts/epsg4326/best/BlueMarble_ShadedRelief_Bathymetry/default//500m/2/1/2.jpeg");
+            background-position: center;
+            background-size: contain;
+            border-radius: 10px;
+            color: white;
+            font-size: 20px;
+            font-weight: bolder;
+            display: flex;
+            align-items: end;
+            padding: 10px;
+        }
+
+        #content {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        #cont {
+            height: 100px;
+            width: 70%;
+            background-color: rgba(0, 0, 0, 0.600);
+            color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 5px;
+        }
+
+        #cont :first-child {
+            font-size: 16px;
+        }
+
+        #cont :last-child {
+            font-size: 12px;
+            line-height: 16px;
+        }
+
+        #map {
+            height: 30px;
+            width: 150px;
+            background-color: rgba(0, 0, 0, 0.600);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            padding: 3px;
+            position: absolute;
+            right: 5px;
+            top: -79px;
+        }
+
+        #map :first-child {
+            height: 25px;
+            width: 25px;
+        }
+
+        #map :last-child {
+            height: 25px;
+            font-size: 14px;
+            font-weight: bolder;
+        }
+
+        #input {
+            height: 300px;
+            width: 420px;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+        }
+
+        #ininput {
+            height: 400px;
+            width: 60%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-evenly;
+            border: 2px solid black;
+            padding: 10px;
+            background-color: aliceblue;
+        }
+
+        #submit {
+            height: 40px;
+            width: 100px;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        #s1 {
+            margin-left: 2px;
+        }
+
+        #submit {
+            padding: 10px 40px;
+            background-color: white;
+            font-size: 18px;
+            font-weight: bold;
+            width: 150px;
+            height: 50px;
+            position: relative;
+            color: rgb(200, 23, 23);
+            z-index: 1;
+            cursor: pointer;
+            overflow-y: hidden;
+            overflow-x: hidden;
+            border-radius: 5px;
+            box-shadow: 2px 2px 5px black;
+            border: 2px solid white;
+        }
+
+        #submit::before {
+            content: "";
+            width: 150px;
+            height: 150px;
+            position: absolute;
+            top: 0px;
+            left: 0px;
+            background-color: black;
+            z-index: -1;
+            transform: translateX(-1%) translateY(-40%) scale(0%);
+            transition: 0.9s ease-in-out;
+            border-radius: 50%;
+        }
+
+        #submit:hover::before {
+            transform: translateX(-1%) translateY(-40%) scale(100%);
+        }
+
+        #submit:hover {
+            color: white;
+            border: 2px solid white;
+        }
+
+        input {
+            padding: 5px;
+        }
+
+        label {
+            font-weight: bold;
+        }
+
+        #reload {
+            padding: 10px;
+            border: 2px solid black;
+            color: black;
+            position: absolute;
+            left: 552px;
+            top: 751px;
+            border-radius: 5px 10px 5px 10px;
+            background-color: antiquewhite;
+        }
+
+        #kunal {
+            width: 25px;
+            height: 25px;
+        }
+
+        #kimg {
+            width: 25px;
+            height: 25px;
+        }
+
+    </style>
+</head>
+<body>
+    <div id="main">
+        <div id="inmain">
+            <img id="mainimg" src="https://i.pinimg.com/originals/d7/59/07/d75907dd4949f488050925b80c8f9c06.jpg" alt="Image" height="670px" width="460px">
+            <div id="im">
+                <div id="map">
+                    <div style="border-radius: 2px;" id="kunal">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSh8F4PtVO0jvyMJX2cqZTVLM6GYP0jmtlT4Q&s" alt="" id="kimg">
+                    </div>
+                    <div>GPS Map Camera</div>
+                </div>
+                <div id="content">
+                    <div id="gimg">google</div>
+                    <div id="cont">
+                        <div>Khargone, Madhya Pradesh, India</div>
+                        <div>
+                            VH4X+MPW, Bardiya, Khaltaka, Khargone, Madhya Pradesh 451001, India
+                            <br>
+                            Lat <span id="s3"></span> Long <span id="s4"></span> <br>
+                            <span id="s1">06/12/24</span> <span id="s2">12.21 PM</span> GMT +05:30
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <button onclick="location.reload()" id="reload">RELOAD</button>
+        </div>
+        <div id="input">
+            <div id="ininput">
+                <h1>Input for Image</h1>
+                <label for="imgg">Image:</label>
+                <input type="file" id="imgg" accept="image/*">
+                <label for="time">Time:</label>
+                <input type="time" id="time">
+                <label for="date">Date:</label>
+                <input type="date" id="date">
+                <label for="land">Lat</label>
+                <input type="text" value="21.856876°" id="land">
+                <label for="long">Long</label>
+                <input type="text" value="75.1599166°" id="long">
+                <button id="submit" onclick="func()">Generate</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
+    <script>
+        let func = () => {
+            document.getElementById("inmain").style.display = "block";
+            document.getElementById("input").style.display = "none";
+
+            let fileInput = document.getElementById("imgg");
+            let newtime = document.getElementById("time").value;
+            let newdate = document.getElementById("date").value;
+            let newland = document.getElementById("land").value;
+            let newlong = document.getElementById("long").value;
+            let oldimg = document.getElementById("mainimg");
+
+            let formattedDate = "";
+            if (newdate) {
+                let dateParts = newdate.split("-");
+                formattedDate = `${dateParts[2]}/${dateParts[1]}/${dateParts[0]}`;
+            }
+
+            if (newtime) {
+                let [hours, minutes] = newtime.split(":");
+                hours = parseInt(hours);
+                let period = hours >= 12 ? "PM" : "AM";
+                hours = hours % 12 || 12;
+                newtime = `${hours}:${minutes} ${period}`;
+            }
+
+            if (fileInput.files && fileInput.files[0]) {
+                let reader = new FileReader();
+                reader.onload = (e) => {
+                    oldimg.src = e.target.result;
+                };
+                reader.readAsDataURL(fileInput.files[0]);
+            } else {
+                alert("Please select a valid image file.");
+            }
+
+            document.getElementById("s1").innerText = formattedDate;
+            document.getElementById("s2").innerText = newtime;
+            document.getElementById("s3").innerText = newland;
+            document.getElementById("s4").innerText = newlong;
+        };
+
+        // Screenshot functionality with z-index fix
+        const screenshotButton = document.createElement("button");
+        screenshotButton.innerText = "Take Screenshot";
+        screenshotButton.style.padding = "10px 20px";
+        screenshotButton.style.border = "2px solid black";
+        screenshotButton.style.color = "black";
+        screenshotButton.style.backgroundColor = "lightblue";
+        screenshotButton.style.borderRadius = "5px";
+        screenshotButton.style.cursor = "pointer";
+        screenshotButton.style.marginTop = "50px";
+        screenshotButton.style.position = "absolute";
+        screenshotButton.style.top = "700px";
+        screenshotButton.style.left = "50%";
+        screenshotButton.style.transform = "translateX(-50%)";
+
+        document.getElementById("inmain").appendChild(screenshotButton);
+
+        screenshotButton.addEventListener("click", () => {
+            const inmain = document.getElementById("inmain");
+
+            html2canvas(inmain, {
+                useCORS: true,
+                logging: true,  // Enable logging for debugging
+                backgroundColor: null,  // Transparent background
+                onclone: (doc) => {
+                    // Make sure the image inside #kunal is captured properly
+                    const kunalClone = doc.getElementById("kunal");
+                    const kimgClone = doc.getElementById("kimg");
+
+                    // Ensure the image inside #kunal is properly cloned
+                    const imgSrc = kimgClone.src;
+                    const img = new Image();
+                    img.src = imgSrc;
+                    img.onload = () => {
+                        kimgClone.src = img.src;
+                        kunalClone.appendChild(kimgClone);
+                    };
+                }
+            }).then((canvas) => {
+                const link = document.createElement("a");
+                link.download = "screenshot.png";
+                link.href = canvas.toDataURL();
+                link.click();
+            }).catch((error) => {
+                console.error("Screenshot generation failed:", error);
+                alert("Failed to generate screenshot. Please check console for details.");
+            });
+        });
+    </script>
+</body>
+</html>

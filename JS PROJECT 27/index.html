@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+        margin: 0;
+         padding: 0;
+         box-sizing: border-box;
+        }
+        html,body{
+            width: 100%;
+            height: 100%;
+        }
+        body{
+            background-color: black;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+        }
+        .main{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 2rem;
+        }
+        button{
+            padding: 10px;
+            font-weight: bolder;
+                       border-radius: 5px;
+
+        }
+        button:active{
+            scale: 0.9;
+        }
+        .output{
+           width: 500px;
+           min-height: 200px;
+           border: 2px solid white;
+           background-color: azure;
+           border-radius: 5px;
+           color: black;
+           padding: 10px;
+           flex-wrap: wrap;
+           
+        }
+        h1{
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        }
+        span{
+             font-style: italic;
+        }
+        select{
+            padding: 10px;
+        }
+        @media(max-width:521px)
+        {
+            .output{
+                width: 400px;
+                margin: 10px;
+            }
+        }
+        @media(max-width:427px)
+        {
+            .output{
+                width: 300px;
+            }
+        }
+    </style>
+</head>
+<body>
+     <div class="main">
+      <h2>Select Language:</h2>
+  <select id="language-select">
+    <option value="en">English</option>
+    <option value="de">German</option>
+    <option value="fr">French</option>
+    <option value="es">Spanish</option>
+    <option value="it">Italian</option>
+  </select>
+        <div class="output">
+            
+            <h1></h1>
+            <span></span>
+        </div>
+       <button onclick="generate()">Generate Random quote</button>
+     </div>
+    <script src="script.js"></script>
+</body>
+</html>

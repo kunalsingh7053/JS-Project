@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BASIC-CALCULATOR</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        }
+        body{
+            width:100vw;
+            height: 100vh;
+            background-color: antiquewhite;
+            background-image: url('https://static.vecteezy.com/system/resources/thumbnails/008/617/161/small/abstract-gradient-pastel-blue-and-purple-background-neon-pastel-color-template-for-website-or-presentation-free-free-vector.jpg');
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            overflow-x: hidden;
+
+        }
+        label{
+            font-weight: bold;
+            font-size: 30px;
+
+        }
+       h1{
+        color:red;
+        font-family: fantasy;
+        animation: kunal 3s linear 1s 1 ;
+
+       }
+       @keyframes kunal{
+        0%{
+           color:black;
+        }
+        100%{
+            color:red;
+            transform: rotate(360deg);
+        }
+       }
+       select{
+         color:red;
+         padding:0px 20px 0px 20px;
+         border:5px solid black;
+         border-radius: 5px;
+       }
+       button{
+        color:red;
+        font-weight: bold;
+        padding:5px 30px 5px 30px;
+        border-radius: 5px;
+        border:5px solid black;
+       }
+       .parent{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding:10px;
+       }
+       h2{
+        border:2px solide black;
+        padding:10px;
+        color:red;
+       }
+       input{
+        text-align: center;
+        padding:10px;
+        border:2px solid black;
+      border-radius: 5px;
+       }
+    </style>
+</head>
+<body>
+    <script >
+        
+alert("CREATED BY KUNLA SINGH RAJPUT");
+function func1(){
+    var fnum = document.getElementById("txtf1").value;
+    var snum = document.getElementById("txtf2").value;
+    var cal = document.getElementById("operator").value;
+    if(cal==="+")
+{
+
+    document.getElementById("result").innerHTML = parseInt(fnum) + parseInt(snum);
+}
+ else if(cal==="-")
+ {
+    document.getElementById("result").innerHTML = fnum - snum;
+ }
+ else if(cal==="%")
+ {
+    document.getElementById("result").innerHTML = fnum % snum;
+ }
+ else if(cal==="*")
+ {
+    document.getElementById("result").innerHTML = fnum * snum;
+ }
+ else if(cal==="/")
+ {
+    document.getElementById("result").innerHTML = fnum / snum;
+ }
+}
+    </script>
+    <div class="parent">
+    <h1>BASIC CALCULATOR</h1>
+    <label >Enter first number:-</label>
+    <br>
+    <input id="txtf1" placeholder="Enter first number" autofocus><br/>
+   <label> Enter second number:-</label>
+   <br>
+   <input id="txtf2" placeholder="Enter second number"><br/>
+   <label > Select operation</label> <select id="operator">
+        <option value="+">+</option>
+        <option value="-">-</option>
+        <option value="%">%</option>
+        <option value="*">*</option>
+        <option value="/">/</option>
+    </select>
+    <br>
+    <br>
+    <label >Result :---</label><h2 id="result"></h2>
+    <br>
+    <br>
+    <button onclick="func1()">CLICK</button>
+</div>
+    
+</body>
+</html>

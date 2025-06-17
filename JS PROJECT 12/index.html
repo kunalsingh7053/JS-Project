@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Insta-lite</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        html, body {
+            width: 100%;
+            height: 100%;
+        }
+        body {
+            background-color: rgb(0, 217, 255);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        #card {
+            height: 500px;
+            width: 300px;
+            background-color: white;
+            border-radius: 15px;
+            border: 3px solid black;
+            position: relative;
+            overflow: hidden;
+        }
+        #storiyan {
+            height: 120px;
+            width: 100%;
+            padding: 15px;
+            border-bottom: 1px solid #dadada;
+            white-space: nowrap;
+            overflow-x: auto;
+            overflow-y: hidden;
+        }
+        #storiyan::-webkit-scrollbar {
+            display: none;
+        }
+        .story {
+            border: 2px solid red;
+            height: 90px;
+            width: 90px;
+            border-radius: 50%;
+            overflow: hidden;
+            display: inline-block;
+            margin-right: 5px;
+        }
+        .story img {
+            height: 100%;
+            width: 100%;
+            object-fit: cover;
+            object-position: center;
+        }
+        #full-screen {
+            height: 500px;
+            width: 300px;
+            z-index: 30;
+            position: absolute;
+            display: none;
+            background-size: cover;
+            background-position: center;
+            cursor: pointer;
+        }
+        #container {
+            height: 100%;
+            width: 100%;
+            background-color: white;
+            position: relative;
+            overflow: hidden;
+        }
+        #container img {
+            height: 100%;
+            width: 100%;
+            object-fit: cover;
+        }
+        #container i {
+            color: white;
+            font-size: 60px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(0);
+            opacity: 0.8;
+            transition: transform 0.4s ease, color 0.4s ease;
+            z-index: 50;
+        }
+        #insta-id{
+            width: 100%;
+            height: 25px;
+        }
+        .insta-img{
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            gap:10px;
+            margin-left: 6px;
+           
+            
+        }
+           .insta-img img
+           {
+             width: 25px;
+             height: 25px;
+             border-radius: 50%;
+            
+        }
+  #dot{
+    margin-left: 130px;
+  }
+    </style>
+</head>
+<body>
+<div id="card">
+    <div id="full-screen"></div>
+    <div id="storiyan"></div>
+     <div id="insta-id">
+         <div class="insta-img">
+            <img src="https://i.scdn.co/image/ab6761610000e5eb8e8f4609471349b4bfdbf774" alt="">
+             <span>Salman khan</span>
+              <span id="dot">...</span>
+         </div>
+     </div>
+    <div id="container">
+        <img src="https://www.bollywoodhungama.com/wp-content/uploads/2022/09/574f7b65-6f79-4245-bb17-6df622da1d3d.jpg" alt="">
+        <i class="ri-heart-3-fill">❤️</i>
+    </div>
+</div>
+
+<script>
+    var arr = [
+        {dp: "https://www.bollywoodhungama.com/wp-content/uploads/2022/08/34-Years-of-Salman-Khan-34-Records-set-by-Bhaijaan-that-makes-him-the-biggest-Sultan-at-the-India-box-office-6.jpg", story: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR3t5IqpAck_gM0LvCTgmMnCTyStanAR1gthQ&s"},
+        {dp: "https://sm.mashable.com/t/mashable_me/photo/default/shah-rukh-khan-mannat_qwwu.1248.jpg", story: "https://www.masala.com/cloud/2024/10/30/Shah-Rukh-Khan-birthday.png"},
+        {dp: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSGqftOFhmbKU4wPBR0fFz4TQ7xv2tNMuSmAQ&s", story: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTlDGCno30_R8NC5OQgk4tvlBRUkzQxpbS-Og&s"},
+        {dp: "https://variety.com/wp-content/uploads/2013/09/sushant-singh-rajput-in-shuddh-desi-romance-movie-3.jpg", story: "https://www.jagranimages.com/images/newimg/14062023/14_06_2023-sushant_singh_rajput_3rd_death_anniversary__23440994.webp"},
+        {dp: "https://resize.indiatvnews.com/en/resize/newbucket/1200_-/2019/02/kunal-khemu-in-golmaal-again-official-trailer-2017-1549446644.jpg", story: "https://sc0.blr1.cdn.digitaloceanspaces.com/article/146398-dvezkmxvfr-1598060796.jpeg"}
+    ];
+
+    var stor = document.querySelector('#storiyan');
+    var clutter = "";
+
+    arr.forEach(function (e, idx) {
+        clutter += `<div class="story">
+            <img id="${idx}" src="${e.dp}" alt="">
+        </div>`;
+    });
+
+    stor.innerHTML = clutter;
+
+    stor.addEventListener("click", function (dets) {
+        if (dets.target.tagName === "IMG") {
+            const idx = dets.target.id;
+            var fullScreen = document.querySelector("#full-screen");
+            fullScreen.style.backgroundImage = `url(${arr[idx].story})`;
+            fullScreen.style.display = "block";
+            setTimeout(function () {
+                fullScreen.style.display = "none";
+            }, 2000);
+        }
+    });
+
+    let con = document.querySelector('#container');
+    let like = document.querySelector('i');
+
+    con.addEventListener('dblclick', function () {
+        like.style.transform = 'translate(-50%, -50%) scale(1)';
+        like.style.color = 'red';
+
+        setTimeout(function () {
+            like.style.transform = 'translate(-50%, -50%) scale(0)';
+        }, 1000);
+    });
+</script>
+</body>
+</html>
