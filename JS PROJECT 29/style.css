@@ -213,6 +213,9 @@ text-align: center;
   flex-wrap: wrap;
   gap: 15px;
 }
+.folder.taskbar.dark-mode{
+  color: black;
+}
 input{
   width: 50px;
 }
