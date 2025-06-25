@@ -35,6 +35,14 @@ let folder = document.querySelector('.folder');
 
   let flag = false;
 
+  //sidebar and weather
+  let weather = document.querySelector('.weather');
+let sidebar =  document.querySelector('.sidebar');
+
+  //calculator
+  let calculator = document.querySelector('.calculator')
+  let calcmenu = document.querySelector('.calcmenu');
+
   // ✅ Start Menu Toggle
   function toggleStartMenu() {
     flag = !flag;
@@ -117,23 +125,12 @@ console.log(wallpaperdiv);
       desktop.style.backgroundPosition = 'center';
           // Hide the video
     video.style.opacity = "0"; // ✅ fade out the video
+   
 
       localStorage.setItem('wallpaper', imgURL);
     }
   });
 
-  // ✅ Auto-close Menus on Outside Click
-  document.addEventListener('click', function () {
-    langmenu.style.bottom = "-100%";
-    arrowmenu.style.bottom = "-100%";
-    startmenu.style.bottom = "-100%";
-    setTimeout(() => {
-      startmenu.style.display = "none";
-    }, 300);
-    searchbar.style.backgroundColor = "#dacbcb";
-    wallpaper.classList.remove("active");
-    foldermenu.style.display = "none";
-  });
 
 let darkmode = document.querySelector('#darkmode');
 darkmode.addEventListener('click',mode)
@@ -164,6 +161,7 @@ darkmode.addEventListener('click',mode)
     desktop.style.backgroundImage = `url('${savedWallpaper}')`;
     desktop.style.backgroundSize = 'cover';
     desktop.style.backgroundPosition = 'center';
+    video.style.opacity = "0"
   }
 const resetBtn = document.querySelector('.resetbtn');
 resetBtn.addEventListener('click', Resetwallpaper);
@@ -227,6 +225,151 @@ neww.addEventListener('click', function (e) {
         folderDiv2.replaceChild(h4, nameInput);
     }
 });
+
+
+weather.addEventListener('click',function(e){
+  e.preventDefault();
+    e.stopPropagation(); // ✅ Stop event from bubbling to document
+
+  if(sidebar.style.left == '-100%')
+  {
+    sidebar.style.left = '0%'; 
+  }
+  else{
+    sidebar.style.left = '-100%'; 
+  }
+})
+let str = '';
+calculator.addEventListener('click',updown)
+document.querySelector('.close-btn').addEventListener('click', parmanentdown);
+document.querySelector('.minimiz-btn').addEventListener('click', updown);
+
+function updown(e) {
+console.log("kkk");
+
+if (e) {
+  e.preventDefault();
+  e.stopPropagation();
+}
+if(calcmenu.style.bottom == '-100%')
+  {
+    calcmenu.style.bottom = '40%';
+    
+  }
+  else{
+    calcmenu.style.bottom = '-100%';
+    
+  }
+  
+}
+function parmanentdown(e) {
+  console.log("kkk");
+  
+  document.querySelector('.calcoutput').value = '';
+  
+  if (e) {
+    e.preventDefault();
+    e.stopPropagation();
+  }
+  calcmenu.style.bottom = '-100%';
+  
+  
+}
+
+// ✅ Prevent document click from closing when clicking inside calcmenu
+calcmenu.addEventListener('click', function(e) {
+  e.stopPropagation();
+});
+
+//calculator main logic.
+document.addEventListener('keydown', function (e) {
+  let key = e.key;
+  
+  // Prevent default button focus behavior
+  if ((/\d/).test(key) || ['+', '-', '*', '/', '.', '%', 'Enter'].includes(key)) {
+    e.preventDefault();
+  }
+  
+  if ((/\d/).test(key) || ['+', '-', '*', '/', '.', '%'].includes(key)) {
+    str += key;
+    document.querySelector('.calcoutput').value = str;
+  }
+  else if (key === 'Enter') {
+    try {
+      str = eval(str);
+    } catch {
+      str = "Error";
+    }
+    document.querySelector('.calcoutput').value = str;
+  }
+  else if (key === 'Escape' || key === 'Delete') {
+    str = '';
+    document.querySelector('.calcoutput').value = str;
+  }
+  else if (key === 'Backspace') {
+    str = str.slice(0, -1);
+    document.querySelector('.calcoutput').value = str;
+  }
+});
+let browser = document.querySelector('.browser');
+document.querySelector('.browser-close-btn').addEventListener('click', browser_parmanentdown);
+document.querySelector('.browser-minimiz-btn').addEventListener('click', browser_updown);
+document.querySelector('.edge').addEventListener('click', browser_updown);
+document.querySelector('.browser-restore-btn').addEventListener('click',browser_restore);
+
+function browser_restore(e){
+  if(browser.style.width == '100%')
+  {
+    browser.style.width = '30%';
+    
+  }
+  else{
+    browser.style.width = '100%';
+    
+  }
+  
+}
+function browser_updown(e) {
+console.log("kkk");
+
+if (e) {
+  e.preventDefault();
+  e.stopPropagation();
+}
+if(browser.style.bottom == '-100%')
+  {
+    browser.style.bottom = '0%';
+    
+  }
+  else{
+    browser.style.bottom = '-100%';
+    
+  }
+  
+}
+function browser_parmanentdown(e){
+if (e) {
+    e.preventDefault();
+    e.stopPropagation();
+  }
+  browser.style.bottom = '-100%';
+  
+}
+  // ✅ Auto-close Menus on Outside Click
+  document.addEventListener('click', function () {
+    langmenu.style.bottom = "-100%";
+    arrowmenu.style.bottom = "-100%";
+    startmenu.style.bottom = "-100%";
+    setTimeout(() => {
+      startmenu.style.display = "none";
+    }, 300);
+    searchbar.style.backgroundColor = "#dacbcb";
+    wallpaper.classList.remove("active");
+    foldermenu.style.display = "none";
+        sidebar.style.left = '-100%'; 
+  calcmenu.style.bottom = '-100%';
+
+  });
 
 
 };
