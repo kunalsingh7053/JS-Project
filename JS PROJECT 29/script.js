@@ -355,6 +355,97 @@ if (e) {
   browser.style.bottom = '-100%';
   
 }
+let map = document.querySelector('.map');
+document.querySelector('.map-close-btn').addEventListener('click', map_parmanentdown);
+document.querySelector('.map-minimiz-btn').addEventListener('click', map_updown);
+document.querySelector('.mapicon').addEventListener('click', map_updown);
+document.querySelector('.map-restore-btn').addEventListener('click',map_restore);
+
+function map_restore(e){
+  if(map.style.width == '100%')
+  {
+    map.style.width = '30%';
+    
+  }
+  else{
+    map.style.width = '100%';
+    
+  }
+  
+}
+function map_updown(e) {
+console.log("kkk");
+
+if (e) {
+  e.preventDefault();
+  e.stopPropagation();
+}
+if(map.style.bottom == '-100%')
+  {
+    map.style.bottom = '0%';
+    
+  }
+  else{
+    map.style.bottom = '-100%';
+    
+  }
+  
+}
+function map_parmanentdown(e){
+if (e) {
+    e.preventDefault();
+    e.stopPropagation();
+  }
+  map.style.bottom = '-100%';
+  
+}
+let ntc = document.querySelectorAll('.ntc');
+ntc.forEach((e)=>{
+  e.addEventListener('click',function(){
+    if( e.style.backgroundColor == 'rgba(128, 128, 128, 0.3)')
+    {
+      
+      e.style.backgroundColor = '#0A8BFF';
+
+    }
+        else{
+      e.style.backgroundColor = 'rgba(128, 128, 128, 0.3)';
+
+    }
+  })
+})
+const slider = document.getElementById('brightnessSlider');
+const dimOverlay = document.getElementById('screenDim');
+
+slider.addEventListener('input', function () {
+  const value = this.value;
+
+  // Slider background update (visual)
+  this.style.background = `linear-gradient(to right, #00baff ${value}%, #777 ${value}%)`;
+
+  // Simulated screen dimming (opacity increases as brightness goes down)
+  let brightness = value / 100;
+  dimOverlay.style.opacity = (1 - brightness) * 0.6; // max darkness = 0.6
+});
+let clickbrithness =  document.querySelector('.clickbrithness');
+let brithness = document.querySelector('.brithness');
+clickbrithness.addEventListener('click',function(e){
+    
+  e.stopPropagation();
+ 
+    if(brithness.style.bottom == '-100%')
+  {
+    brithness.style.bottom = '60px';
+    
+  }
+  else{
+    brithness.style.bottom = '-100%';
+    
+  }
+  
+})
+
+
   // ✅ Auto-close Menus on Outside Click
   document.addEventListener('click', function () {
     langmenu.style.bottom = "-100%";
@@ -368,6 +459,7 @@ if (e) {
     foldermenu.style.display = "none";
         sidebar.style.left = '-100%'; 
   calcmenu.style.bottom = '-100%';
+    brithness.style.bottom = '-100%';
 
   });
 
